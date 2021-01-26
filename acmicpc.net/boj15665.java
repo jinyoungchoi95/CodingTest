@@ -1,0 +1,44 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class boj15665 {
+    public static int N, M;
+    public static int[] array;
+    public static StringBuilder sb = new StringBuilder();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] input = br.readLine().split(" ");
+        N = Integer.parseInt(input[0]);
+        M = Integer.parseInt(input[1]);
+        array = new int[N];
+        input = br.readLine().split(" ");
+        for(int i=0; i<N; i++){
+            array[i] = Integer.parseInt(input[i]);
+        }
+        Arrays.sort(array);
+        ArrayList<Integer> list = new ArrayList<>();
+
+        dfs(list);
+        System.out.println(sb.toString());
+    }
+    public static void dfs(ArrayList<Integer> list){
+        if(list.size() == M){
+            for(int i=0; i<list.size(); i++){
+                sb.append(list.get(i) + " ");
+            }
+            sb.append("\n");
+            return;
+        }
+        int before = -1;
+        for(int i=0; i<N; i++){
+            if(i>0 && before == array[i]) continue;
+            before = array[i];
+            ArrayList<Integer> tmp = new ArrayList<>(list);
+            tmp.add(array[i]);
+            dfs(tmp);
+        }
+    }
+}
