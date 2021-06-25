@@ -1,5 +1,4 @@
 # CodingTest
-
 - CodingTest sorcefile for study
 
 ### acmicpc.net
