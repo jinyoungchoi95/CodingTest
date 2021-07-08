@@ -7,5 +7,3 @@
 
 ### programmers
 - https://programmers.co.kr/
-### programmers_2
-- for resolving
